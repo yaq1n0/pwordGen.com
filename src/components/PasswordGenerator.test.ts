@@ -5,14 +5,14 @@ import PasswordGenerator from "./PasswordGenerator.vue";
 // Mock the pwordgen module
 vi.mock("pwordgen", () => ({
   generatePassword: vi.fn(() => "TestPassword123!"),
-  estimateEntropyBits: vi.fn(() => 64.5),
+  estimateEntropyBits: vi.fn(() => 64.5)
 }));
 
 // Mock clipboard API
 Object.assign(navigator, {
   clipboard: {
-    writeText: vi.fn(() => Promise.resolve()),
-  },
+    writeText: vi.fn(() => Promise.resolve())
+  }
 });
 
 // Mock URL and history
@@ -20,15 +20,15 @@ const mockReplace = vi.fn();
 Object.defineProperty(window, "location", {
   value: {
     href: "http://localhost:3000",
-    search: "",
+    search: ""
   },
-  writable: true,
+  writable: true
 });
 Object.defineProperty(window, "history", {
   value: {
-    replaceState: mockReplace,
+    replaceState: mockReplace
   },
-  writable: true,
+  writable: true
 });
 
 describe("PasswordGenerator", () => {
@@ -43,7 +43,7 @@ describe("PasswordGenerator", () => {
     expect(wrapper.find("h1").text()).toBe("pwordgen.com");
     expect(wrapper.find(".password-field").exists()).toBe(true);
     expect(wrapper.find('button[title="Generate new password"]').exists()).toBe(
-      true,
+      true
     );
     expect(wrapper.find('button[title*="Copy"]').exists()).toBe(true);
   });
@@ -54,7 +54,7 @@ describe("PasswordGenerator", () => {
 
     const passwordField = wrapper.find(".password-field");
     expect((passwordField.element as HTMLInputElement).value).toBe(
-      "TestPassword123!",
+      "TestPassword123!"
     );
   });
 
@@ -78,7 +78,7 @@ describe("PasswordGenerator", () => {
 
     const passwordField = wrapper.find(".password-field");
     expect((passwordField.element as HTMLInputElement).value).toBe(
-      "TestPassword123!",
+      "TestPassword123!"
     );
   });
 
@@ -90,7 +90,7 @@ describe("PasswordGenerator", () => {
     await copyBtn.trigger("click");
 
     expect(navigator.clipboard.writeText).toHaveBeenCalledWith(
-      "TestPassword123!",
+      "TestPassword123!"
     );
   });
 

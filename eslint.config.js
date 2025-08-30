@@ -16,33 +16,38 @@ export default [
       parserOptions: {
         parser: parserTypeScript,
         extraFileExtensions: [".vue"],
-        sourceType: "module",
-      },
+        sourceType: "module"
+      }
     },
     plugins: {
-      "@typescript-eslint": pluginTypeScript,
+      "@typescript-eslint": pluginTypeScript
     },
     rules: {
       ...pluginTypeScript.configs["recommended"].rules,
       "vue/multi-word-component-names": "off",
-    },
+      "@typescript-eslint/comma-dangle": "off"
+    }
   },
   {
     files: ["**/*.ts", "**/*.tsx"],
     languageOptions: {
       parser: parserTypeScript,
       parserOptions: {
-        sourceType: "module",
-      },
+        sourceType: "module"
+      }
     },
     plugins: {
-      "@typescript-eslint": pluginTypeScript,
+      "@typescript-eslint": pluginTypeScript
     },
     rules: {
       ...pluginTypeScript.configs["recommended"].rules,
-    },
+      "@typescript-eslint/comma-dangle": "off"
+    }
   },
   {
-    rules: {},
-  },
+    rules: {
+      "@typescript-eslint/comma-dangle": "off",
+      "comma-dangle": "off"
+    }
+  }
 ];
