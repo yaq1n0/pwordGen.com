@@ -5,10 +5,20 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: system-ui, -apple-system, sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    sans-serif;
   background: #ffffff;
   color: #1e293b;
   line-height: 1.6;
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background: #1e293b;
+    color: #ffffff;
+  }
 }
 
 #app {

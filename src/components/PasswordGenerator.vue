@@ -24,7 +24,7 @@
               title="Generate new password"
               @click="generateNewPassword"
             >
-              🔄 Regenerate
+              Regenerate
             </button>
             <button
               class="btn btn-secondary"
@@ -33,7 +33,7 @@
               :title="copySuccess ? 'Copied!' : 'Copy to clipboard'"
               @click="copyToClipboard"
             >
-              {{ copySuccess ? "✓ Copied!" : "📋 Copy" }}
+              {{ copySuccess ? "Copied" : "Copy" }}
             </button>
           </div>
         </div>
@@ -195,214 +195,302 @@ const {
 
 <style scoped>
 .password-generator {
-  max-width: 800px;
+  max-width: 600px;
   margin: 0 auto;
-  padding: 2rem;
-  font-family:
-    system-ui,
-    -apple-system,
-    sans-serif;
-  line-height: 1.6;
+  padding: 1rem;
+  font-family: system-ui, sans-serif;
+  color: #000;
 }
 
 .header {
-  text-align: center;
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
 }
 
 .header h1 {
-  font-size: 2.5rem;
-  margin: 0 0 0.5rem 0;
-  color: #2563eb;
+  font-size: 1.5rem;
+  margin: 0;
+  font-weight: normal;
+  color: #000;
 }
 
 .header p {
-  color: #64748b;
-  margin: 0;
+  margin: 0.25rem 0 0 0;
+  font-size: 0.9rem;
+  color: #666;
 }
 
 .password-section {
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
 }
 
 .password-display {
   display: flex;
-  gap: 1rem;
+  gap: 0.5rem;
   margin-bottom: 1rem;
-  flex-wrap: wrap;
 }
 
 .password-field {
   flex: 1;
-  min-width: 300px;
-  padding: 1rem;
-  font-family: "Courier New", monospace;
-  font-size: 1.1rem;
-  border: 2px solid #e2e8f0;
-  border-radius: 0.5rem;
-  background: #f8fafc;
+  padding: 0.5rem;
+  font-family: monospace;
+  border: 1px solid #000;
+  background: transparent;
+  color: #000;
 }
 
 .password-field.error {
-  border-color: #ef4444;
-  background: #fef2f2;
-  color: #ef4444;
+  color: #666;
 }
 
 .password-actions {
   display: flex;
   gap: 0.5rem;
-  flex-wrap: wrap;
 }
 
 .btn {
-  padding: 1rem 1.5rem;
-  border: none;
-  border-radius: 0.5rem;
-  font-size: 0.9rem;
-  font-weight: 600;
+  padding: 0.5rem 1rem;
+  border: 1px solid #000;
+  background: transparent;
   cursor: pointer;
-  transition: all 0.2s;
-  white-space: nowrap;
+  font-size: 0.9rem;
+  color: #000;
 }
 
 .btn:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
+  color: #999;
+  border-color: #999;
+  cursor: default;
 }
 
 .btn-primary {
-  background: #2563eb;
-  color: white;
-}
-
-.btn-primary:hover:not(:disabled) {
-  background: #1d4ed8;
+  background: #000;
+  color: #fff;
+  border-color: #000;
 }
 
 .btn-secondary {
-  background: #64748b;
-  color: white;
-}
-
-.btn-secondary:hover:not(:disabled) {
-  background: #475569;
+  background: transparent;
+  color: #000;
+  border-color: #000;
 }
 
 .entropy-display {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.75rem 1rem;
-  background: #f1f5f9;
-  border-radius: 0.5rem;
-  font-size: 0.9rem;
-}
-
-.entropy-label {
-  font-weight: 600;
+  font-size: 0.8rem;
+  color: #666;
+  margin-top: 0.5rem;
 }
 
 .entropy-value {
-  font-family: "Courier New", monospace;
-  font-weight: 600;
-}
-
-.entropy-info {
-  margin-left: 0.5rem;
-  font-size: 0.8rem;
+  font-family: monospace;
+  color: #000;
 }
 
 .options-section h2 {
-  margin: 0 0 1.5rem 0;
-  color: #1e293b;
+  margin: 0 0 1rem 0;
+  font-size: 1rem;
+  font-weight: normal;
+  color: #000;
 }
 
 .option-group {
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
 }
 
 .option-group h3 {
-  margin: 0 0 1rem 0;
-  font-size: 1rem;
-  color: #374151;
+  margin: 0 0 0.5rem 0;
+  font-size: 0.9rem;
+  font-weight: normal;
+  color: #666;
 }
 
 .option-label {
   display: block;
-  margin-bottom: 0.5rem;
-  font-weight: 600;
-  color: #374151;
+  margin-bottom: 0.25rem;
+  font-size: 0.9rem;
+  color: #000;
 }
 
 .range-input {
   width: 100%;
-  margin: 0.5rem 0;
+  margin: 0.25rem 0;
+  -webkit-appearance: none;
+  appearance: none;
+  height: 2px;
+  background: #000;
+  outline: none;
+}
+
+.range-input::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  background: #000;
+  cursor: pointer;
+}
+
+.range-input::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  background: #000;
+  cursor: pointer;
+  border: none;
 }
 
 .number-input {
-  width: 80px;
-  padding: 0.5rem;
-  border: 1px solid #d1d5db;
-  border-radius: 0.25rem;
-  margin-left: 1rem;
+  width: 60px;
+  padding: 0.25rem;
+  border: 1px solid #000;
+  background: transparent;
+  margin-left: 0.5rem;
+  color: #000;
 }
 
 .text-input {
   width: 100%;
-  padding: 0.75rem;
-  border: 1px solid #d1d5db;
-  border-radius: 0.25rem;
+  padding: 0.5rem;
+  border: 1px solid #000;
+  background: transparent;
   font-size: 0.9rem;
+  color: #000;
 }
 
 .checkbox-group {
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: 0.5rem;
 }
 
 .checkbox-label {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  font-weight: normal;
+  font-size: 0.9rem;
   cursor: pointer;
-}
-
-.checkbox {
-  margin: 0;
+  color: #000;
 }
 
 .footer {
   text-align: center;
-  margin-top: 3rem;
-  padding-top: 2rem;
-  border-top: 1px solid #e2e8f0;
-  color: #64748b;
-  font-size: 0.9rem;
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid #000;
+  font-size: 0.8rem;
+  color: #666;
 }
 
 .footer a {
-  color: #2563eb;
   text-decoration: none;
+  color: #000;
 }
 
 .footer a:hover {
   text-decoration: underline;
 }
 
-@media (max-width: 640px) {
+@media (prefers-color-scheme: dark) {
   .password-generator {
-    padding: 1rem;
+    color: #fff;
   }
 
-  .password-display {
-    flex-direction: column;
+  .header h1 {
+    color: #fff;
+  }
+
+  .header p {
+    color: #999;
   }
 
   .password-field {
-    min-width: auto;
+    border-color: #fff;
+    color: #fff;
+  }
+
+  .password-field.error {
+    color: #999;
+  }
+
+  .btn {
+    border-color: #fff;
+    color: #fff;
+  }
+
+  .btn:disabled {
+    color: #666;
+    border-color: #666;
+  }
+
+  .btn-primary {
+    background: #fff;
+    color: #000;
+    border-color: #fff;
+  }
+
+  .btn-secondary {
+    background: transparent;
+    color: #fff;
+    border-color: #fff;
+  }
+
+  .entropy-display {
+    color: #999;
+  }
+
+  .entropy-value {
+    color: #fff;
+  }
+
+  .options-section h2 {
+    color: #fff;
+  }
+
+  .option-group h3 {
+    color: #999;
+  }
+
+  .option-label {
+    color: #fff;
+  }
+
+  .range-input {
+    background: #fff;
+  }
+
+  .range-input::-webkit-slider-thumb {
+    background: #fff;
+  }
+
+  .range-input::-moz-range-thumb {
+    background: #fff;
+  }
+
+  .number-input {
+    border-color: #fff;
+    color: #fff;
+  }
+
+  .text-input {
+    border-color: #fff;
+    color: #fff;
+  }
+
+  .checkbox-label {
+    color: #fff;
+  }
+
+  .footer {
+    border-top-color: #fff;
+    color: #999;
+  }
+
+  .footer a {
+    color: #fff;
+  }
+}
+
+@media (max-width: 640px) {
+  .password-display {
+    flex-direction: column;
   }
 }
 </style>

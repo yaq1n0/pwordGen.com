@@ -7,14 +7,5 @@ import PasswordGenerator from "./components/PasswordGenerator.vue";
 </template>
 
 <style>
-* {
-  box-sizing: border-box;
-}
-
-body {
-  margin: 0;
-  padding: 0;
-  background: #ffffff;
-  color: #1e293b;
-}
+/* Global styles moved to style.css to avoid conflicts with dark mode */
 </style>

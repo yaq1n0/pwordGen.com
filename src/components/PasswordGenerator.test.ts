@@ -179,7 +179,7 @@ describe("PasswordGenerator", () => {
     await copyBtn.trigger("click");
     await wrapper.vm.$nextTick();
 
-    expect(copyBtn.text()).toBe("✓ Copied!");
+    expect(copyBtn.text()).toBe("Copied");
   });
 
   it("disables copy button when no password", async () => {
