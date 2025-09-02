@@ -5,7 +5,3 @@ import PasswordGenerator from "./components/PasswordGenerator.vue";
 <template>
   <PasswordGenerator />
 </template>
-
-<style>
-/* Global styles moved to style.css to avoid conflicts with dark mode */
-</style>

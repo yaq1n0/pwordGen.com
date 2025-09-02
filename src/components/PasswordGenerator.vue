@@ -77,7 +77,7 @@
           <div class="checkbox-group">
             <label class="checkbox-label">
               <input
-                v-model="options.includeUpper"
+                v-model="options.uppercase"
                 type="checkbox"
                 class="checkbox"
               />
@@ -85,7 +85,7 @@
             </label>
             <label class="checkbox-label">
               <input
-                v-model="options.includeLower"
+                v-model="options.lowercase"
                 type="checkbox"
                 class="checkbox"
               />
@@ -93,7 +93,7 @@
             </label>
             <label class="checkbox-label">
               <input
-                v-model="options.includeDigits"
+                v-model="options.digits"
                 type="checkbox"
                 class="checkbox"
               />
@@ -101,7 +101,7 @@
             </label>
             <label class="checkbox-label">
               <input
-                v-model="options.includeSymbols"
+                v-model="options.symbols"
                 type="checkbox"
                 class="checkbox"
               />
@@ -115,7 +115,7 @@
           <label for="custom" class="option-label"> Custom Characters </label>
           <input
             id="custom"
-            v-model="options.customChars"
+            v-model="options.custom"
             type="text"
             class="text-input"
             placeholder="Additional characters to include"

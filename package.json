@@ -9,19 +9,26 @@
     "preview": "vite preview",
     "test": "vitest run",
     "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
     "type-check": "vue-tsc --noEmit",
-    "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix",
-    "prettier": "prettier --write \"./**/*.{html,vue,ts,js,json,md}\""
+    "lint": "eslint . --ext .vue,.ts",
+    "lint:fix": "eslint . --ext .vue,.ts --fix",
+    "prettier": "prettier --check \"./**/*.{vue,ts}\"",
+    "prettier:fix": "prettier --write \"./**/*.{vue,ts}\" --fix"
   },
   "dependencies": {
-    "pwordgen": "^0.1.0",
+    "pwordgen": "^0.2.3",
     "vue": "^3.5.20"
   },
   "devDependencies": {
+    "@testing-library/jest-dom": "^6.8.0",
+    "@testing-library/user-event": "^14.6.1",
+    "@testing-library/vue": "^8.1.0",
     "@types/node": "^24.3.0",
     "@typescript-eslint/eslint-plugin": "^8.41.0",
     "@typescript-eslint/parser": "^8.41.0",
     "@vitejs/plugin-vue": "^6.0.1",
+    "@vitest/coverage-v8": "^3.2.4",
     "@vitest/ui": "^3.2.4",
     "@vue/test-utils": "^2.4.6",
     "@vue/tsconfig": "^0.8.1",
